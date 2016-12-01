@@ -84,14 +84,14 @@ union Data get(int index){
 	Node *temp;
 	int i;
 	if (index <= length() / 2) {
-		temp = head->next;
+		temp = head;
 		for (int i = 0; i < index; i++){
 			temp = temp->next;
 		}//end for loop
 		return temp->data;
 	}
 	else {
-		temp = last->previous;
+		temp = last;
 		for (int i = 0; i < length() - index - 1; i++) {
 			temp = temp->previous;
 		} //end for loop
