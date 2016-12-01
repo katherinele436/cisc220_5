@@ -39,22 +39,22 @@ int length()
 }
 
 union Data get(int index){
-Node *temp;
-int i;
-if (index <= length() / 2) {
-	temp = head.next;
-	for (int i = 0; i < index; i++){
-		temp = temp->next;
-	}//end for loop
-	return temp->data
-}
-else {
-	temp = last.previous;
-	for (int i = 0, i < length() - index - 1, i++) {
-		temp = temp->previous;
-	} //end for loop
-	return temp->data;
-}//end if else
+	Node *temp;
+	int i;
+	if (index <= length() / 2) {
+		temp = head.next;
+		for (int i = 0; i < index; i++){
+			temp = temp->next;
+		}//end for loop
+		return temp->data
+	}
+	else {
+		temp = last.previous;
+		for (int i = 0, i < length() - index - 1, i++) {
+			temp = temp->previous;
+		} //end for loop
+		return temp->data;
+	}//end if else
 
 
-}//end get
+	}//end get
