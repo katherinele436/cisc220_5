@@ -20,7 +20,7 @@ void insert(int index, union Data data){ //need to be finished
 		newNode->length = head.length;
 		newNode->previous = NULL;
 		newNode->data = data;
-		newNode 
+		head = newNode; 
 	}
 	
 	else if (index == head.length){
