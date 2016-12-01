@@ -88,6 +88,9 @@ void removes(int index){ //need to be finished
 
 int length()
 {
+	if (head.length == NULL){
+	return 0;
+	}
 	return head.length;
 }
 
