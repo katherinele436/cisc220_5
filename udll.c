@@ -16,7 +16,7 @@ void insert(int index, union Data data){ //need to be finished
 		head = newNode;
 		return;
 	}
-	
+	else {
 	if (index == 0) { //add to the beginning
 		head->prev = newNode;
 		newNode->next = head; 
@@ -46,12 +46,32 @@ void insert(int index, union Data data){ //need to be finished
 		}
 		head->length= length();
 	
-		
+	}
+	}
  
 }
 
 void removes(int index){ //need to be finished
-	Node* newNode = getNewNode(union Data data);
+	Node* deleteNode = getNewNode(union Data data);
+	Node* temp = head; 
+	if (head == NULL){
+		printf("List is empty. Nothing to delete.\n");
+	}
+	else {
+		if (deleteNode == head){
+			temp = temp->next;
+			temp->previous= NULL;
+		}
+		if(deleteNode->next != NULL){
+    			deleteNode->next->previous = deleteNode->previous;
+		}
+		if(deleteNode->previous != NULL){
+    			deleteNode->previous->next = deleteNode->next;   
+		}
+	}
+	free(deleteNode);
+  	return;
+	
 }
 
 int length()
