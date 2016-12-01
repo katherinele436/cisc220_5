@@ -1,19 +1,22 @@
-union Data {
+#ifndef UDLL_H_
+#define UDLL_H_
+
+typedef union Data {
 int i;
 int* intP;
-float f
+float f;
 float* floatP;
 char c;
 char* charP;
 } Data;
-struct Node {
+
+typedef struct Node {
 	int length;
 	union Data data;
 	struct Node *next;
 	struct Node *previous;
-};
+} Node;
 
-typedef struct Node Node;
 
 Node *head = NULL;
 Node *last = NULL;
@@ -25,3 +28,5 @@ void removes(int index);
 union Data get(int index);
 
 int length();
+
+#endif /* UDLL_H_ */
