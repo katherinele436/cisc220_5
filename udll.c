@@ -45,12 +45,13 @@ void insert(int index, union Data data){ //need to be finished
 			temp1->previous=newNode;
 		}
 		head->length= length();
-		
+	
 		
  
 }
 
 void removes(int index){ //need to be finished
+	Node* newNode = getNewNode(union Data data);
 }
 
 int length()
