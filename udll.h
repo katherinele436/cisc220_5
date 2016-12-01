@@ -6,12 +6,13 @@ float* floatP;
 char c;
 char* charP;
 } Data;
-struct Node {
-	int length;
-	union Data data;
-	struct Node *next;
-	struct Node *previous;
-};
+struct Node* getNewNode(union Data data) {
+	struct Node* newNode= (struct Node*)malloc(sizeof(struct Node));
+	newNode->data = data;
+	newNode->prev = NULL;
+	newNode->next = NULL;
+	return newNode;
+}
 
 typedef struct Node Node;
 
