@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #include “udll.h”
 
 void insert(int index, union Data data){ //need to be finished
