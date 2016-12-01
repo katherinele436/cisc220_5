@@ -54,19 +54,21 @@ void insert(int index, union Data data){ //need to be finished
 void removes(int index){ //need to be finished
 	Node* deleteNode = getNewNode(union Data data);
 	Node* temp = head; 
-	if (head == NULL){
+	if (head == NULL){// empty list
 		printf("List is empty. Nothing to delete.\n");
 	}
 	else {
-		if (deleteNode == head){
+		if (deleteNode == head){ //delete node is the head node
 			temp = temp->next;
 			temp->previous= NULL;
 		}
-		if(deleteNode->next != NULL){
-    			deleteNode->next->previous = deleteNode->previous;
-		}
-		if(deleteNode->previous != NULL){
-    			deleteNode->previous->next = deleteNode->next;   
+		else {// delete node is not the head node
+			if(deleteNode->next != NULL){// change next
+				deleteNode->next->previous = deleteNode->previous;
+			}
+			if(deleteNode->previous != NULL){//change previous
+				deleteNode->previous->next = deleteNode->next;   
+			}
 		}
 	}
 	free(deleteNode);
