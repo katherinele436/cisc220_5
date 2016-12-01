@@ -2,30 +2,50 @@
 #include <stdlib.h>
 #include “udll.h”
 
+struct Node* getNewNode(union Data data) {
+	struct Node* newNode= (struct Node*)malloc(sizeof(struct Node));
+	newNode->data = data;
+	newNode->prev = NULL;
+	newNode->next = NULL;
+	return newNode;
+}
 void insert(int index, union Data data){ //need to be finished
-	Node *newNode = (Node*) malloc(sizeof(Node));
+	Node* newNode = getNewNode(union Data data);
 
-	if (head = NULL){	
-		newNode->length = 1;
-		newNode->data = data;
-		newNode->next = NULL;
-		new Node->previous = NULL;
-		head.next = newNode;
-		last.previous = newNode;
+	if (head = NULL){ //empty list
+		head = newNode;
 		return;
 	}
 	
-	if (index == 0) {
-		Node *temp = head.next;
-		newNode->length = head.length;
-		newNode->previous = NULL;
-		newNode->data = data;
-		head = newNode; 
+	if (index == 0) { //add to the beginning
+		head->prev = newNode;
+		newNode->next = head; 
+		head = newNode;
 	}
 	
-	else if (index == head.length){
-		 
+	else if(index = head.length - 1 ){ //add to the end
+		Node* temp = head; 
+		while(temp->next != NULL) temp = temp->next; 
+			temp->next = newNode;
+			newNode->prev = temp;
 	}
+	else if (index <= head.length) {//add to middle
+		Node* temp = head;
+		Node* temp1;
+		int i = 0;
+		while (i< index -1){
+			temp = temp->next;
+			i++
+		}
+		temp1 = temp->next;
+		temp->next = newNode;
+		newNode->previous = temp;
+		newNode->next = temp1;
+		if (temp1 != NULL){
+			temp1->previous=newNode;
+		}
+		head->length= length();
+		
 		
  
 }
