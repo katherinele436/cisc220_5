@@ -58,31 +58,32 @@ void insert(int index, union Data data){ //need to be finished
 }
 
 void removes(int index){ //need to be finished
-	Node* deleteNode = getNewNode(data);
 	Node* temp = head;
 	if (head == NULL){// empty list
 		printf("List is empty. Nothing to delete.\n");
 	}
-	else {
-		if (deleteNode == head){ //delete node is the head node
-			temp = temp->next;
-			temp->length = head->length;
-			temp->previous= NULL;
-			head = temp;
-			head->length = head.length - 1;
-		}
-		else {// delete node is not the head node
-			if(deleteNode->next != NULL){// change next
-				deleteNode->next->previous = deleteNode->previous;
-			}
-			if(deleteNode->previous != NULL){//change previous
-				deleteNode->previous->next = deleteNode->next;
-			}
-		head->length = head.length -1;
-		}
+	int i;
+	for(i=0; i<index && temp!=NULL; i++)
+	{
+		temp = temp->next;
 	}
-	free(deleteNode);
-  	return;
+
+	if(index == 0)//delete from beginning
+	{
+		head = head->next;
+		head->previous = NULL;
+	}
+	else if(index == last)//delete from end
+	{
+		last = last->previous;
+		last->next = NULL;		
+	}
+	else if(temp != NULL)
+	{
+	temp->previous->next = temp->next;
+	temp->next->previous = temp->previous;
+	}
+	free(temp)
 
 }
 
